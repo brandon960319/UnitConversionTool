@@ -7,11 +7,21 @@ public class Temp_Converter {
     
     public static double ConvertCelsiusToFarenheit(double length)
     {
+        if(length < -273)
+        {
+            //colder than absolute zero, so just return absolute zero.
+            length = -273;            
+        }
         return (length * 9/5) + 32;
     }
     
     public static double ConvertFarenheitToCelsius(double length)
-    {        
+    {      
+        if(length < -459.67)
+        {
+            //colder than absolute zero, so just return absolute zero.
+            length = -459.67;            
+        }  
         return (length - 32) * 5/9;        
     }
 
