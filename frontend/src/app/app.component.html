@@ -1,0 +1,162 @@
+<h2 style="color:#ffffff">{{title}}</h2>
+<div class="row">
+    <div class="main-menu">
+        <h4>Lengths</h4>
+        <div class="menu-line">
+            <div class="sub-menu">
+                <span>
+                    <h5>From:</h5>    
+                    <div>
+                        <div style="display: inline-block;">
+                            <input type="number" [(ngModel)]="LenInput"/>
+                            <select id="selectedLenFrom" [(ngModel)]="fromLen">
+                                <optgroup label="Imperial Lengths">
+                                    <option *ngFor="let tmpsupportedImperialLengths of supportedImperialLengths" value="{{tmpsupportedImperialLengths}}">
+                                        {{tmpsupportedImperialLengths}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Lengths">
+                                    <option *ngFor="let tmpsupportedMetricLengths of supportedMetricLengths" value="{{tmpsupportedMetricLengths}}">
+                                        {{tmpsupportedMetricLengths}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>                        
+                    </div>  
+                </span>
+            </div>
+            <div class="sub-menu">
+                <span>
+                    <h5>To:</h5>    
+                    <div>
+                        <div>                            
+                            <select id="selectedLenTo" [(ngModel)]="toLen">
+                                <optgroup label="Imperial Lengths">
+                                    <option *ngFor="let tmpsupportedImperialLengths of supportedImperialLengths" value="{{tmpsupportedImperialLengths}}">
+                                        {{tmpsupportedImperialLengths}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Lengths">
+                                    <option *ngFor="let tmpsupportedMetricLengths of supportedMetricLengths" value="{{tmpsupportedMetricLengths}}">
+                                        {{tmpsupportedMetricLengths}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                            <input type="number" disabled="disabled" [(ngModel)]="LenOutput" />
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>        
+        <div>
+            <button (click)="convLen()">Convert Lengths</button>
+        </div>    
+    </div>
+    <p></p>
+    <div class="main-menu">   
+        <h4>Mass</h4> 
+        <div class="menu-line">
+            <div class="sub-menu">
+                <span>
+                    <h5>From:</h5>       
+                    <div>
+                        <div style="display: inline-block;">
+                            <input type="number" [(ngModel)]="MassInput" />
+                            <select id="selectedMassFrom" [(ngModel)]="fromMass">
+                                <optgroup label="Imperial Mass">
+                                    <option *ngFor="let tmpsupportedImperialMass of supportedImperialMass" value="{{tmpsupportedImperialMass}}">
+                                        {{tmpsupportedImperialMass}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Mass">
+                                    <option *ngFor="let tmpsupportedMetricMass of supportedMetricMass" value="{{tmpsupportedMetricMass}}">
+                                        {{tmpsupportedMetricMass}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>                     
+                </span>        
+            </div>
+            <div class="sub-menu">
+                <span>
+                    <h5>To:</h5> 
+                    <div>
+                        <div>                            
+                            <select id="selectedMassTo"  [(ngModel)]="toMass">
+                                <optgroup label="Imperial Mass">
+                                    <option *ngFor="let tmpsupportedImperialMass of supportedImperialMass" value="{{tmpsupportedImperialMass}}">
+                                        {{tmpsupportedImperialMass}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Mass">
+                                    <option *ngFor="let tmpsupportedMetricMass of supportedMetricMass" value="{{tmpsupportedMetricMass}}">
+                                        {{tmpsupportedMetricMass}}
+                                    </option>
+                                </optgroup>
+                            </select>   
+                        <input type="number" disabled="disabled" [(ngModel)]="MassOutput" />
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div>
+            <button (click)="convMass()">Convert Mass</button>
+        </div>    
+    </div>
+    <p></p>
+    <div class="main-menu">   
+        <h4>Temperature</h4> 
+        <div class="menu-line">
+            <div class="sub-menu">
+                <span>
+                    <h5>From:</h5>       
+                    <div>
+                        <div style="display: inline-block;">
+                            <input type="number" [(ngModel)]="TempInput" />
+                            <select  id="selectedTempFrom" [(ngModel)]="fromTemp">
+                                <optgroup label="Imperial Temperature">
+                                    <option *ngFor="let tmpsupportedImperialTemp of supportedImperialTemp" value="{{tmpsupportedImperialTemp}}">
+                                        {{tmpsupportedImperialTemp}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Temperature">
+                                    <option *ngFor="let tmpsupportedMetricTemp of supportedMetricTemp" value="{{tmpsupportedMetricTemp}}">
+                                        {{tmpsupportedMetricTemp}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>                     
+                </span>        
+            </div>
+            <div class="sub-menu">
+                <span>
+                    <h5>To:</h5> 
+                    <div>
+                        <div>                            
+                            <select id="selectedTempTo" [(ngModel)]="toTemp">
+                                <optgroup label="Imperial Temperature">
+                                    <option *ngFor="let tmpsupportedImperialTemp of supportedImperialTemp" value="{{tmpsupportedImperialTemp}}">
+                                        {{tmpsupportedImperialTemp}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Metric Temperature">
+                                    <option *ngFor="let tmpsupportedMetricTemp of supportedMetricTemp" value="{{tmpsupportedMetricTemp}}">
+                                        {{tmpsupportedMetricTemp}}
+                                    </option>
+                                </optgroup>
+                            </select>   
+                        <input type="number" disabled="disabled" [(ngModel)]="TempOutput" />
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div>
+            <button (click)="convTemp()">Convert Temperature</button>
+        </div>    
+    </div>
+</div>
+
