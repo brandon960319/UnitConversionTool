@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import {first, map, tap} from 'rxjs/operators';
 
 @Component({
@@ -34,41 +34,53 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {    
 
 
-    this.http.get<string[]>('http://localhost:8083/supportedImperialLengths').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedImperialLengths', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedImperialLengths = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedImperialLengths = data;
+    });
 
-    this.http.get<string[]>('http://localhost:8083/supportedMetricLengths').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedMetricLengths', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedMetricLengths = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedMetricLengths = data;
+    });
 
-    this.http.get<string[]>('http://localhost:8083/supportedImperialMass').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedImperialMass', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedImperialMass = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedImperialMass = data;
+    });
 
-    this.http.get<string[]>('http://localhost:8083/supportedMetricMass').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedMetricMass', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedMetricMass = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedMetricMass = data;
+    });
 
-    this.http.get<string[]>('http://localhost:8083/supportedImperialTemp').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedImperialTemp', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedImperialTemp = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedImperialTemp = data;
+    });
 
-    this.http.get<string[]>('http://localhost:8083/supportedMetricTemp').pipe(
+    this.http.get<string[]>('http://localhost:8083/supportedMetricTemp', { observe: 'response' }).pipe(
       first(),
       tap(result => console.log('Brandon: ', result)),
-      map(result => this.supportedMetricTemp = result)
-    ).subscribe();
+      map(result => result.body)
+    ).subscribe(data => {
+      this.supportedMetricTemp = data;
+    });
   }
 
   convTemp(): void {

@@ -190,12 +190,24 @@ class AppComponent {
         this.toTemp = '';
     }
     ngOnInit() {
-        this.http.get('http://localhost:8083/supportedImperialLengths').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedImperialLengths = result)).subscribe();
-        this.http.get('http://localhost:8083/supportedMetricLengths').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedMetricLengths = result)).subscribe();
-        this.http.get('http://localhost:8083/supportedImperialMass').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedImperialMass = result)).subscribe();
-        this.http.get('http://localhost:8083/supportedMetricMass').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedMetricMass = result)).subscribe();
-        this.http.get('http://localhost:8083/supportedImperialTemp').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedImperialTemp = result)).subscribe();
-        this.http.get('http://localhost:8083/supportedMetricTemp').pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => this.supportedMetricTemp = result)).subscribe();
+        this.http.get('http://localhost:8083/supportedImperialLengths', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedImperialLengths = data;
+        });
+        this.http.get('http://localhost:8083/supportedMetricLengths', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedMetricLengths = data;
+        });
+        this.http.get('http://localhost:8083/supportedImperialMass', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedImperialMass = data;
+        });
+        this.http.get('http://localhost:8083/supportedMetricMass', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedMetricMass = data;
+        });
+        this.http.get('http://localhost:8083/supportedImperialTemp', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedImperialTemp = data;
+        });
+        this.http.get('http://localhost:8083/supportedMetricTemp', { observe: 'response' }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.first)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.tap)(result => console.log('Brandon: ', result)), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)(result => result.body)).subscribe(data => {
+            this.supportedMetricTemp = data;
+        });
     }
     convTemp() {
         if (this.fromTemp === this.toTemp) {
